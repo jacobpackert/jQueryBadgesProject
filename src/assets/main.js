@@ -4,7 +4,7 @@ $(function() {
 $.ajax({
   url: 'https://www.codeschool.com/users/jacobpackert.json',
   dataType: 'jsonp',
-  succes: function(response){
+  success: function(response){
 
       }
 
