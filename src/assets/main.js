@@ -5,9 +5,17 @@ $.ajax({
   url: 'https://www.codeschool.com/users/jacobpackert.json',
   dataType: 'jsonp',
   success: function(response){
-    // console.log(response);
+    console.log(response);
     $.each(response.courses.completed, function(i){
-      $('#badges').append('<div class="course"></div>');
+      var item = $('<div class="course"></div>');
+      var courseTitle = response.courses.completed[i].title;
+      $('<h3>' + courseTitle + '</h3>').appendTo(item);
+      var courseBadge = response.courses.completed[i].badge;
+      var badgeImage = $('<img></img>');
+      $(badgeImage).attr("src", courseBadge);
+      // console.log(badgeImage);
+      $(badgeImage).appendTo(item);
+      $('#badges').append(item);
       });
 
 
